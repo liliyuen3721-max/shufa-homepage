@@ -36,7 +36,7 @@ window.I18N = {
     "contact.title": "聯絡我",
     "contact.desc": "想訂製書法、報名課程或預訂揮春?IG 私訊我,會盡快回覆。",
     "contact.qr": "(QR 碼佔位 —— 放 IG 二維碼截圖)",
-    "footer": "© 2025 大魚山野人 · 香港 · IG @vivalavida_2330"
+    "footer": "© __YEAR__ 大魚山野人 · 香港 · IG @vivalavida_2330"
   },
   "zh-Hans": {
     "meta.title": "大鱼山野人 · 香港书法家",
@@ -70,7 +70,7 @@ window.I18N = {
     "contact.title": "联系我",
     "contact.desc": "想定制书法、报名课程或预订挥春?IG 私信我,会尽快回复。",
     "contact.qr": "(QR 码占位 —— 放 IG 二维码截图)",
-    "footer": "© 2025 大鱼山野人 · 香港 · IG @vivalavida_2330"
+    "footer": "© __YEAR__ 大鱼山野人 · 香港 · IG @vivalavida_2330"
   },
   "en": {
     "meta.title": "Da Yu Shan Ye Ren · Calligrapher in Hong Kong",
@@ -104,7 +104,7 @@ window.I18N = {
     "contact.title": "Contact",
     "contact.desc": "Custom calligraphy, classes or spring couplets? DM me on Instagram and I'll get back to you soon.",
     "contact.qr": "(QR placeholder — add your IG QR code)",
-    "footer": "© 2025 Da Yu Shan Ye Ren · Hong Kong · IG @vivalavida_2330"
+    "footer": "© __YEAR__ Da Yu Shan Ye Ren · Hong Kong · IG @vivalavida_2330"
   }
 };
 
@@ -134,7 +134,7 @@ window.I18N.apply = function (lang) {
     var key = el.getAttribute("data-i18n");
     if (dict[key]) {
       if (el.tagName === "TITLE") document.title = dict[key];
-      else el.textContent = dict[key];
+      else el.textContent = dict[key].replace("__YEAR__", String(new Date().getFullYear()));
     }
   }
 

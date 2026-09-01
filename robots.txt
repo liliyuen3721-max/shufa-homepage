@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://liliyuen3721-max.github.io/shufa-homepage/sitemap.xml
