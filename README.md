@@ -24,11 +24,16 @@ npx serve .
 └── favicon.svg           # 印章風站點圖標
 ```
 
-## 替換佔位素材(朋友提供後)
+## 素材現狀(2026-09)
 
-- **作品圖**:`index.html` 中所有 `.work-tile`(書法字卡)目前是佔位,收到實拍後替換為 `<img src="assets/xxx.jpg">`,並把 `data-char/data-title/data-desc` 對應改為圖片資訊
-- **IG 二維碼**:`#contact` 的 `.qr-placeholder` 替換為 `<img src="assets/ig-qr.png">`
-- 所有圖片建議壓成 WebP 後放入 `assets/` 目錄
+- 已接入真實作品:`assets/works-kaishu.webp`(楷書臨習)、`assets/design-lantern.webp`(食燈籠玩月餅,已裁掉手機UI)、`assets/design-mansion.webp`(裕雅苑)
+- `assets/ig-qr.png` 為自動生成的 IG 二維碼,指向 https://www.instagram.com/vivalavida_2330
+
+## 待補素材(朋友提供後)
+
+- **作品圖**:剩餘 `.work-tile`(字卡:龍/靜/雲/福/緣/和/野)是佔位,收到實拍後替換為 `<img src="assets/xxx.webp">`,並同步 `data-img/data-title/data-desc`
+- 若朋友提供官方 IG 二維碼截圖,替換 `assets/ig-qr.png`
+- 所有圖片統一壓成 WebP 放 `assets/` 目錄
 
 ## 部署(GitHub Pages)
 
