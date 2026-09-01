@@ -18,6 +18,34 @@
     });
   })();
 
+  /* ================= 1.5) 主題切換(普通/暗黑) ================= */
+  var themeBtn = document.getElementById("themeToggle");
+  var inkRGB = "34,28,18";   // 墨暈染顏色,隨主題切換
+  function isDark() { return document.documentElement.getAttribute("data-theme") === "dark"; }
+  function syncInkColor() { inkRGB = isDark() ? "232,222,200" : "34,28,18"; }
+  function setTheme(dark) {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    if (themeBtn) themeBtn.textContent = dark ? "☀️" : "🌙";
+    try { localStorage.setItem("site-theme", dark ? "dark" : "light"); } catch (e) { /* ignore */ }
+    syncInkColor();
+  }
+  // 首次:記住的選擇優先,否則跟隨系統
+  (function initTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem("site-theme"); } catch (e) { /* ignore */ }
+    if (saved === "dark" || saved === "light") setTheme(saved === "dark");
+    else setTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+  })();
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () { setTheme(!isDark()); });
+  }
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+    // 只在用戶沒手動選擇過時跟隨系統變化
+    var saved = null;
+    try { saved = localStorage.getItem("site-theme"); } catch (err) { /* ignore */ }
+    if (!saved) setTheme(e.matches);
+  });
+
   /* ================= 2) 導航 ================= */
   var nav = document.getElementById("nav");
   var navToggle = document.getElementById("navToggle");
@@ -142,7 +170,6 @@
       var blobs = [];
       var MAX = 36;
       var lastScrollY = window.scrollY;
-      var INK = "34,28,18";
 
       function resize() {
         DPR = Math.min(window.devicePixelRatio || 1, 2);
@@ -171,8 +198,8 @@
           var b = blobs[i];
           b.r += b.growth;
           var g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, Math.max(b.r, 1));
-          g.addColorStop(0, "rgba(" + INK + "," + b.alpha + ")");
-          g.addColorStop(1, "rgba(" + INK + ",0)");
+          g.addColorStop(0, "rgba(" + inkRGB + "," + b.alpha + ")");
+          g.addColorStop(1, "rgba(" + inkRGB + ",0)");
           ctx.fillStyle = g;
           ctx.beginPath();
           ctx.arc(b.x, b.y, Math.max(b.r, 1), 0, Math.PI * 2);
