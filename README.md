@@ -30,6 +30,8 @@ npx serve .
 - 主題三態切換:**淺色 ☀️ / 深色 🌙 / 跟隨系統 🖥️**(點按循環,記憶選擇)
 - 作品 lightbox 彈大圖、四類服務單頁切換、滾動墨暈染 canvas、背景字視差
 
+> ⚠️ 更新 CSS/JS 後務必把 `index.html` 裡資源連結的 `?v=` 版本號 +1(GitHub Pages 靜態資源有長緩存,不加版本號用戶端會一直用舊檔)。
+
 ## 素材現狀(2026-09)
 
 - 已接入真實作品:`assets/works-kaishu.webp`(楷書臨習)、`assets/design-lantern.webp`(食燈籠玩月餅,已裁掉手機UI)、`assets/design-mansion.webp`(裕雅苑)
