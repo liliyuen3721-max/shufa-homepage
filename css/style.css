@@ -327,6 +327,11 @@ ul { list-style: none; }
 
 html[data-theme="dark"] .hero-name { text-shadow: 0 2px 0 rgba(0,0,0,0.5); }
 html[data-theme="dark"] .hero-badge { background: rgba(34,29,20,0.6); }
+html[data-theme="dark"] .hero-tags span {
+  color: var(--text);
+  border-color: rgba(236, 227, 207, 0.28);
+  background: rgba(34, 29, 20, 0.55);
+}
 
 /* ---------- 頁腳 ---------- */
 .footer { background: var(--footer-bg); color: var(--footer-text); padding: 2.2rem 0; text-align: center; font-size: 0.9rem; }
