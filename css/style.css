@@ -216,7 +216,7 @@ ul { list-style: none; }
 .tile-5 { background: linear-gradient(135deg, #dcd6ea, #bfb3d6); }
 .tile-6 { background: linear-gradient(135deg, #efe3cd, #ddc89e); }
 .tile-y { background: linear-gradient(135deg, #f7e58a, #e8c23a); }
-.tile-fluid { background: linear-gradient(135deg, #cfd6f0, #98a3d8); }
+.tile-liu { background: linear-gradient(135deg, #f0e7d2, #cfbd97); }
 .tile-tutor { background: linear-gradient(135deg, #d9ebdd, #a9cfb3); }
 .tile-red { background: linear-gradient(135deg, #d34a40, #a02c24); }
 .tile-red .tile-char, .tile-red .tile-cap { color: #fbe9d6; }
