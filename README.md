@@ -20,9 +20,15 @@ npx serve .
 ├── index.html            # 頁面結構(所有 data-i18n 文案入口)
 ├── css/style.css         # 樣式(改 :root 變量可換配色)
 ├── js/i18n.js            # 三語字典(繁/簡/EN)+ 偵測/切換
-├── js/main.js            # 交互:lightbox/類目切換/墨暈染 canvas/視差
+├── js/main.js            # 交互:lightbox/類目切換/墨暈染 canvas/視差/主題切換
 └── favicon.svg           # 印章風站點圖標
 ```
+
+## 功能
+
+- 繁/簡/EN 三語切換(自動偵測 + localStorage 記憶)
+- 主題三態切換:**淺色 ☀️ / 深色 🌙 / 跟隨系統 🖥️**(點按循環,記憶選擇)
+- 作品 lightbox 彈大圖、四類服務單頁切換、滾動墨暈染 canvas、背景字視差
 
 ## 素材現狀(2026-09)
 

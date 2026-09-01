@@ -18,32 +18,49 @@
     });
   })();
 
-  /* ================= 1.5) 主題切換(普通/暗黑) ================= */
+  /* ================= 1.5) 主題切換(三態:淺色/深色/跟隨系統) ================= */
   var themeBtn = document.getElementById("themeToggle");
   var inkRGB = "34,28,18";   // 墨暈染顏色,隨主題切換
-  function isDark() { return document.documentElement.getAttribute("data-theme") === "dark"; }
-  function syncInkColor() { inkRGB = isDark() ? "232,222,200" : "34,28,18"; }
-  function setTheme(dark) {
-    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
-    if (themeBtn) themeBtn.textContent = dark ? "☀️" : "🌙";
-    try { localStorage.setItem("site-theme", dark ? "dark" : "light"); } catch (e) { /* ignore */ }
-    syncInkColor();
-  }
-  // 首次:記住的選擇優先,否則跟隨系統
-  (function initTheme() {
+  var THEME_ORDER = ["system", "light", "dark"];
+  var THEME_ICON = { system: "🖥️", light: "☀️", dark: "🌙" };
+  var THEME_LABEL = { system: "跟隨系統", light: "淺色", dark: "深色" };
+
+  function getThemePref() {
     var saved = null;
     try { saved = localStorage.getItem("site-theme"); } catch (e) { /* ignore */ }
-    if (saved === "dark" || saved === "light") setTheme(saved === "dark");
-    else setTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-  })();
-  if (themeBtn) {
-    themeBtn.addEventListener("click", function () { setTheme(!isDark()); });
+    return (THEME_ORDER.indexOf(saved) >= 0) ? saved : "system";
   }
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-    // 只在用戶沒手動選擇過時跟隨系統變化
-    var saved = null;
-    try { saved = localStorage.getItem("site-theme"); } catch (err) { /* ignore */ }
-    if (!saved) setTheme(e.matches);
+  function isDark() {
+    var pref = getThemePref();
+    if (pref === "dark") return true;
+    if (pref === "light") return false;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function syncInkColor() { inkRGB = isDark() ? "232,222,200" : "34,28,18"; }
+
+  function applyTheme() {
+    var dark = isDark();
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    var pref = getThemePref();
+    if (themeBtn) {
+      themeBtn.textContent = THEME_ICON[pref];
+      themeBtn.title = "主題:" + THEME_LABEL[pref] + "(點擊切換)";
+      themeBtn.setAttribute("aria-label", "主題:" + THEME_LABEL[pref]);
+    }
+    syncInkColor();
+  }
+  applyTheme();
+
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var next = THEME_ORDER[(THEME_ORDER.indexOf(getThemePref()) + 1) % THEME_ORDER.length];
+      try { localStorage.setItem("site-theme", next); } catch (e) { /* ignore */ }
+      applyTheme();
+    });
+  }
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+    // 跟隨系統模式下,系統主題變化時實時響應
+    if (getThemePref() === "system") applyTheme();
   });
 
   /* ================= 2) 導航 ================= */
