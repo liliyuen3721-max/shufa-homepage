@@ -329,8 +329,8 @@ html[data-theme="dark"] .hero-name { text-shadow: 0 2px 0 rgba(0,0,0,0.5); }
 html[data-theme="dark"] .hero-badge { background: rgba(34,29,20,0.6); }
 html[data-theme="dark"] .hero-tags span {
   color: var(--text);
-  border-color: rgba(236, 227, 207, 0.28);
-  background: rgba(34, 29, 20, 0.55);
+  border-color: rgba(236, 227, 207, 0.22);
+  background: #0f0d09;
 }
 
 /* ---------- 頁腳 ---------- */
