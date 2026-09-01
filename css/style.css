@@ -341,7 +341,12 @@ html[data-theme="dark"] .hero-tags span {
   position: fixed; inset: 0; z-index: 200;
   background: rgba(20, 16, 10, 0.92);
   display: flex; align-items: center; justify-content: center;
+  overflow-y: auto; overscroll-behavior: contain;
   animation: fadeIn 0.25s ease;
+}
+/* 內容過高時安全居中(短視口也能滾動到關閉鍵) */
+@supports (align-items: safe center) {
+  .lightbox { align-items: safe center; }
 }
 .lightbox[hidden] { display: none; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -364,6 +369,7 @@ html[data-theme="dark"] .hero-tags span {
 .lb-cap span { color: #b8ac92; font-size: 0.9rem; }
 .lb-close {
   position: absolute; top: 1.2rem; right: 1.4rem;
+  z-index: 10; pointer-events: auto; cursor: pointer;
   background: none; border: 2px solid rgba(255,255,255,0.5); color: #fff;
   width: 44px; height: 44px; border-radius: 50%; font-size: 1.1rem;
   transition: all 0.2s ease;
@@ -371,6 +377,7 @@ html[data-theme="dark"] .hero-tags span {
 .lb-close:hover { background: var(--red); border-color: var(--red); transform: rotate(90deg); }
 .lb-nav {
   position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 10; cursor: pointer;
   background: none; border: 2px solid rgba(255,255,255,0.4); color: #fff;
   width: 50px; height: 50px; border-radius: 50%; font-size: 1.6rem; line-height: 1;
   transition: all 0.2s ease;
