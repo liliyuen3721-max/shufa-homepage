@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.title">大魚山野人 · 香港書法家</title>
+  <meta name="description" content="大魚山野人——香港書法家,中大藝術系研習書法五年,擅柳體、顏體與草書《十七帖》,提供書法字體設計、流體書法、輔導班與揮春服務。IG @vivalavida_2330" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- 墨暈染畫布 + 背景書法字裝飾 -->
+  <canvas id="inkCanvas" aria-hidden="true"></canvas>
+  <div class="bg-chars" id="bgChars" aria-hidden="true">
+    <span class="bg-char" data-speed="-0.12">書</span>
+    <span class="bg-char" data-speed="-0.22">墨</span>
+    <span class="bg-char" data-speed="-0.08">緣</span>
+    <span class="bg-char" data-speed="-0.18">韻</span>
+    <span class="bg-char" data-speed="-0.06">龍</span>
+    <span class="bg-char" data-speed="-0.26">永</span>
+  </div>
+
+  <!-- ============ 導航 ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner container">
+      <a class="nav-logo" href="#top">大魚山野人</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#works" data-i18n="nav.works">作品</a>
+        <a href="#services" data-i18n="nav.services">服務</a>
+        <a href="#about" data-i18n="nav.about">關於</a>
+        <a href="#contact" data-i18n="nav.contact">聯繫</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="zh-Hant" aria-pressed="true">繁</button>
+          <button class="lang-btn" data-lang="zh-Hans" aria-pressed="false">簡</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="nav-cta" href="https://www.instagram.com/vivalavida_2330" target="_blank" rel="noopener">IG 找我</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <span class="hero-badge" data-i18n="hero.badge">香港 · 書法 · 教學 · 客製</span>
+          <h1 class="hero-title">
+            <span class="hero-name">大魚山野人</span>
+          </h1>
+          <p class="hero-sub" data-i18n="hero.sub">
+            中大藝術系研習書法五年以上,擅楷書柳體、顏體,草書師法王羲之《十七帖》。以筆墨會友,亦可為你而寫。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#works" data-i18n="hero.cta.works">看作品</a>
+            <a class="btn btn-ig" href="https://www.instagram.com/vivalavida_2330" target="_blank" rel="noopener">
+              <span class="ig-icon">IG</span> <span data-i18n="hero.cta.ig">IG 找我</span>
+            </a>
+          </div>
+          <div class="hero-tags">
+            <span>柳體</span><span>顏體</span><span>《十七帖》</span><span>流體書法</span><span>揮春</span>
+          </div>
+        </div>
+        <div class="hero-seal reveal">
+          <div class="seal">大魚山野人</div>
+          <p class="seal-caption" data-i18n="hero.seal">大魚山野人 · 香港</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 作品集 ============ -->
+    <section class="section" id="works">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker" data-i18n="nav.works">作品</span>
+          <h2 data-i18n="section.works">書法作品</h2>
+          <p data-i18n="section.works.sub">點擊作品查看大圖。楷、行、草兼備,亦可客製。</p>
+        </div>
+        <div class="gallery" id="gallery">
+          <!-- 作品縮圖:佔位為書法字卡,朋友提供實拍後替換為 <img> -->
+          <button class="work-tile tile-photo" data-img="assets/works-kaishu.webp" data-title="楷書臨習" data-desc="毛邊紙楷書臨習">
+            <img src="assets/works-kaishu.webp" alt="楷書臨習" loading="lazy" />
+            <span class="tile-cap">楷書臨習</span>
+          </button>
+          <button class="work-tile tile-2" data-char="靜" data-title="楷書 · 靜" data-desc="顏體楷書">
+            <span class="tile-char">靜</span><span class="tile-cap">楷 · 顏體</span>
+          </button>
+          <button class="work-tile tile-3" data-char="雲" data-title="行草 · 雲" data-desc="王羲之《十七帖》筆意">
+            <span class="tile-char">雲</span><span class="tile-cap">草 · 十七帖</span>
+          </button>
+          <button class="work-tile tile-4" data-char="福" data-title="揮春 · 福" data-desc="紅紙手寫揮春">
+            <span class="tile-char">福</span><span class="tile-cap">揮春</span>
+          </button>
+          <button class="work-tile tile-5" data-char="緣" data-title="流體 · 緣" data-desc="流體書法實驗">
+            <span class="tile-char">緣</span><span class="tile-cap">流體</span>
+          </button>
+          <button class="work-tile tile-6" data-char="和" data-title="楷書 · 和" data-desc="柳體楷書">
+            <span class="tile-char">和</span><span class="tile-cap">楷 · 柳體</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 服務(四類切換) ============ -->
+    <section class="section section-alt" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker" data-i18n="nav.services">服務</span>
+          <h2 data-i18n="section.services">我的服務</h2>
+          <p data-i18n="section.services.sub">四類服務,點按切換。</p>
+        </div>
+
+        <div class="cat-tabs reveal" role="tablist">
+          <button class="cat-tab active" data-cat="font" role="tab" aria-selected="true" data-i18n="cat.font.title">書法字體設計</button>
+          <button class="cat-tab" data-cat="fluid" role="tab" aria-selected="false" data-i18n="cat.fluid.title">流體書法</button>
+          <button class="cat-tab" data-cat="tutor" role="tab" aria-selected="false" data-i18n="cat.tutor.title">輔導班</button>
+          <button class="cat-tab" data-cat="chunlian" role="tab" aria-selected="false" data-i18n="cat.chunlian.title">揮春</button>
+        </div>
+
+        <!-- 書法字體設計 -->
+        <section class="cat-panel active" data-panel="font" role="tabpanel">
+          <p class="cat-desc" data-i18n="cat.font.desc">為品牌、海報、包裝設計書法字體與字標,讓每個字都有筆意。</p>
+          <div class="cat-grid">
+            <button class="work-tile tile-photo" data-img="assets/design-lantern.webp" data-title="食燈籠 玩月餅" data-desc="書法字體設計">
+              <img src="assets/design-lantern.webp" alt="食燈籠 玩月餅" loading="lazy" />
+              <span class="tile-cap">食燈籠 玩月餅</span>
+            </button>
+            <button class="work-tile tile-photo" data-img="assets/design-mansion.webp" data-title="裕雅苑" data-desc="字號 / 招牌書法">
+              <img src="assets/design-mansion.webp" alt="裕雅苑" loading="lazy" />
+              <span class="tile-cap">裕雅苑</span>
+            </button>
+            <button class="work-tile tile-y" data-char="野" data-title="字體設計 · 野" data-desc="黃色底書法字標"><span class="tile-char">野</span></button>
+          </div>
+          <a class="btn btn-ig" href="https://www.instagram.com/vivalavida_2330" target="_blank" rel="noopener">
+            <span class="ig-icon">IG</span> <span data-i18n="cat.cta">IG 查詢</span>
+          </a>
+        </section>
+
+        <!-- 流體書法 -->
+        <section class="cat-panel" data-panel="fluid" role="tabpanel">
+          <p class="cat-desc" data-i18n="cat.fluid.desc">以流動的墨色與暈染呈現書法的另一種可能,適合當代藝術與空間裝飾。</p>
+          <div class="cat-grid">
+            <button class="work-tile tile-fluid" data-char="流" data-title="流體 · 流" data-desc="墨色暈染實驗"><span class="tile-char">流</span></button>
+            <button class="work-tile tile-fluid" data-char="染" data-title="流體 · 染" data-desc="墨色暈染實驗"><span class="tile-char">染</span></button>
+            <button class="work-tile tile-fluid" data-char="意" data-title="流體 · 意" data-desc="墨色暈染實驗"><span class="tile-char">意</span></button>
+          </div>
+          <a class="btn btn-ig" href="https://www.instagram.com/vivalavida_2330" target="_blank" rel="noopener">
+            <span class="ig-icon">IG</span> <span data-i18n="cat.cta">IG 查詢</span>
+          </a>
+        </section>
+
+        <!-- 輔導班 -->
+        <section class="cat-panel" data-panel="tutor" role="tabpanel">
+          <p class="cat-desc" data-i18n="cat.tutor.desc">硬筆、軟筆書法教學,一對一或小班,線上線下皆可,歡迎查詢。</p>
+          <div class="cat-grid">
+            <button class="work-tile tile-tutor" data-char="教" data-title="教學 · 教" data-desc="課堂示範"><span class="tile-char">教</span></button>
+            <button class="work-tile tile-tutor" data-char="學" data-title="教學 · 學" data-desc="學生作品"><span class="tile-char">學</span></button>
+          </div>
+          <a class="btn btn-ig" href="https://www.instagram.com/vivalavida_2330" target="_blank" rel="noopener">
+            <span class="ig-icon">IG</span> <span data-i18n="cat.cta">IG 查詢</span>
+          </a>
+        </section>
+
+        <!-- 揮春 -->
+        <section class="cat-panel" data-panel="chunlian" role="tabpanel">
+          <p class="cat-desc" data-i18n="cat.chunlian.desc">每年歲末接寫揮春(春聯),紅紙手寫,過年更有年味。</p>
+          <div class="cat-grid">
+            <button class="work-tile tile-red" data-char="福" data-title="揮春 · 福" data-desc="紅紙揮春"><span class="tile-char">福</span></button>
+            <button class="work-tile tile-red" data-char="滿" data-title="揮春 · 滿" data-desc="紅紙揮春"><span class="tile-char">滿</span></button>
+            <button class="work-tile tile-red" data-char="春" data-title="揮春 · 春" data-desc="紅紙揮春"><span class="tile-char">春</span></button>
+          </div>
+          <a class="btn btn-ig" href="https://www.instagram.com/vivalavida_2330" target="_blank" rel="noopener">
+            <span class="ig-icon">IG</span> <span data-i18n="cat.cta">IG 查詢</span>
+          </a>
+        </section>
+      </div>
+    </section>
+
+    <!-- ============ 關於 ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker" data-i18n="nav.about">關於</span>
+          <h2 data-i18n="about.title">關於我</h2>
+        </div>
+        <div class="about-card reveal">
+          <p data-i18n="about.desc">於香港中文大學藝術系研習書法,至今五年以上。</p>
+          <ul class="about-list">
+            <li>✒️ <span data-i18n="about.l1">擅長楷書 —— 柳體、顏體</span></li>
+            <li>📜 <span data-i18n="about.l2">草書師法王羲之《十七帖》</span></li>
+            <li>📍 <span data-i18n="about.l3">服務地區:香港</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 聯繫 ============ -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="section-head">
+            <span class="kicker" data-i18n="nav.contact">聯繫</span>
+            <h2 data-i18n="contact.title">聯絡我</h2>
+            <p data-i18n="contact.desc">想訂製書法、報名課程或預訂揮春?IG 私訊我,會盡快回覆。</p>
+          </div>
+          <div class="contact-ig">
+            <a class="btn btn-ig btn-big" href="https://www.instagram.com/vivalavida_2330" target="_blank" rel="noopener">
+              <span class="ig-icon">IG</span> @vivalavida_2330
+            </a>
+            <div class="qr-placeholder" data-i18n="contact.qr">(QR 碼佔位 —— 放 IG 二維碼截圖)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footer">© 2025 大魚山野人 · 香港 · IG @vivalavida_2330</p>
+    </div>
+  </footer>
+
+  <!-- ============ Lightbox ============ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <figure class="lb-stage" id="lbStage">
+      <div class="lb-tile" id="lbTile"></div>
+      <figcaption class="lb-cap" id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
