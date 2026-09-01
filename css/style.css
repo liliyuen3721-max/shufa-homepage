@@ -261,13 +261,25 @@ ul { list-style: none; }
   max-width: 680px; margin: 0 auto; text-align: center;
 }
 .contact-ig { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; margin-top: 1rem; }
-.qr-placeholder {
-  width: 150px; height: 150px;
-  border: 2px dashed var(--line); border-radius: var(--radius);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); font-size: 0.85rem; text-align: center; padding: 0.6rem;
-  background: var(--paper);
+.qr-img {
+  width: 160px; height: 160px;
+  border-radius: var(--radius);
+  border: 6px solid var(--card);
+  box-shadow: var(--shadow-lg);
+  background: var(--card);
 }
+
+/* ---------- 返回頂部 ---------- */
+.to-top {
+  position: fixed; right: 1.3rem; bottom: 1.3rem; z-index: 90;
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 2px solid var(--line); background: var(--card); color: var(--ink);
+  font-size: 1.2rem; box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: all 0.3s ease;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
 
 /* ---------- 頁腳 ---------- */
 .footer { background: var(--ink); color: #d9cfb8; padding: 2.2rem 0; text-align: center; font-size: 0.9rem; }

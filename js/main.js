@@ -32,6 +32,17 @@
     if (!ticking) { ticking = true; requestAnimationFrame(onScrollNav); }
   }, { passive: true });
 
+  /* 返回頂部按鈕 */
+  var toTop = document.getElementById("toTop");
+  if (toTop) {
+    window.addEventListener("scroll", function () {
+      toTop.classList.toggle("show", window.scrollY > 600);
+    }, { passive: true });
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+    });
+  }
+
   if (navToggle && navLinks) {
     navToggle.addEventListener("click", function () {
       var open = navLinks.classList.toggle("open");

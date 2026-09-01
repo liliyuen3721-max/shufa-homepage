@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f1e7" />
   <title data-i18n="meta.title">大魚山野人 · 香港書法家</title>
   <meta name="description" content="大魚山野人——香港書法家,中大藝術系研習書法五年,擅柳體、顏體與草書《十七帖》,提供書法字體設計、流體書法、輔導班與揮春服務。IG @vivalavida_2330" />
   <meta name="robots" content="index, follow" />
@@ -113,7 +114,7 @@
         <div class="gallery" id="gallery">
           <!-- 作品縮圖:佔位為書法字卡,朋友提供實拍後替換為 <img> -->
           <button class="work-tile tile-photo" data-img="assets/works-kaishu.webp" data-title="楷書臨習" data-desc="毛邊紙楷書臨習">
-            <img src="assets/works-kaishu.webp" alt="楷書臨習" loading="lazy" />
+            <img src="assets/works-kaishu.webp" alt="楷書臨習" width="1200" height="900" loading="lazy" />
             <span class="tile-cap">楷書臨習</span>
           </button>
           <button class="work-tile tile-2" data-char="靜" data-title="楷書 · 靜" data-desc="顏體楷書">
@@ -156,11 +157,11 @@
           <p class="cat-desc" data-i18n="cat.font.desc">為品牌、海報、包裝設計書法字體與字標,讓每個字都有筆意。</p>
           <div class="cat-grid">
             <button class="work-tile tile-photo" data-img="assets/design-lantern.webp" data-title="食燈籠 玩月餅" data-desc="書法字體設計">
-              <img src="assets/design-lantern.webp" alt="食燈籠 玩月餅" loading="lazy" />
+              <img src="assets/design-lantern.webp" alt="食燈籠 玩月餅" width="900" height="1080" loading="lazy" />
               <span class="tile-cap">食燈籠 玩月餅</span>
             </button>
             <button class="work-tile tile-photo" data-img="assets/design-mansion.webp" data-title="裕雅苑" data-desc="字號 / 招牌書法">
-              <img src="assets/design-mansion.webp" alt="裕雅苑" loading="lazy" />
+              <img src="assets/design-mansion.webp" alt="裕雅苑" width="465" height="779" loading="lazy" />
               <span class="tile-cap">裕雅苑</span>
             </button>
             <button class="work-tile tile-y" data-char="野" data-title="字體設計 · 野" data-desc="黃色底書法字標"><span class="tile-char">野</span></button>
@@ -241,7 +242,7 @@
             <a class="btn btn-ig btn-big" href="https://www.instagram.com/vivalavida_2330" target="_blank" rel="noopener">
               <span class="ig-icon">IG</span> @vivalavida_2330
             </a>
-            <div class="qr-placeholder" data-i18n="contact.qr">(QR 碼佔位 —— 放 IG 二維碼截圖)</div>
+            <img class="qr-img" src="assets/ig-qr.png" alt="IG 二維碼 @vivalavida_2330" width="150" height="150" loading="lazy" />
           </div>
         </div>
       </div>
@@ -253,6 +254,8 @@
       <p data-i18n="footer">© 2025 大魚山野人 · 香港 · IG @vivalavida_2330</p>
     </div>
   </footer>
+
+  <button class="to-top" id="toTop" aria-label="回到頂部">↑</button>
 
   <!-- ============ Lightbox ============ -->
   <div class="lightbox" id="lightbox" hidden>
